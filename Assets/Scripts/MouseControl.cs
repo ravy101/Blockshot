@@ -51,7 +51,7 @@ public class MouseControl : NetworkBehaviour {
                 if (rayHit.collider.gameObject.layer == LayerMask.NameToLayer("Unit"))
                 {
                     //right click on a unit
-                    agent.SetAttackTarget(rayHit.collider.gameObject);
+                    agent.TryAttackTarget(rayHit.collider.gameObject);
                 }
                 else { 
                     targetDestination = rayHit.point;

@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class Shootable : NetworkBehaviour {
     public float MaxHealth;
     public bool isDead = false;
+    public Transform displayPosition;
 
     [SyncVar]
     private float currentHealth;
@@ -26,6 +27,7 @@ public class Shootable : NetworkBehaviour {
         if (!isDead)
         {
             currentHealth -= amount;
+            FloatingTextController.CreatePopupText(amount.ToString(), displayPosition);
 
             if (currentHealth <= 0)
             {
